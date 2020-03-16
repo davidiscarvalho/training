@@ -46,5 +46,5 @@ def update(quantity, price, item):
 
 # insert("forks", 10, 4.9)
 # update(11,6,"forks")
-delete("forks")
+# delete("forks")
 print(view())
