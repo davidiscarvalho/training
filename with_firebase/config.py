@@ -9,8 +9,9 @@ init_db = {
     'appId': '1:357591708584:web:3c81611821a54fb8e2239d',
     'measurementId': 'G-QRDQMYRJP3'
 }
+
+# using config parser
 """
-#using config parser
 from configparser import ConfigParser
 
 config = ConfigParser()
