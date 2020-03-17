@@ -14,4 +14,5 @@ source .venv/bin/activate
 pip install -r requirements.txt
 
 
-
+*git*
+git push origin master
