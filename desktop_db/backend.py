@@ -34,7 +34,9 @@ def view():
     conn = sqlite3.connect("books.db")
     cur = conn.cursor()
     cur.execute("SELECT * FROM book")
+    rows = cur.fetchall()
     conn.close()
+    return rows
 
 
 def search(title="", author="", year="", isbn=""):
