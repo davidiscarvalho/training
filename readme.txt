@@ -16,3 +16,7 @@ pip install -r requirements.txt
 
 *git*
 git push origin master
+
+git rm -r one-of-the-directories
+git commit . -m "Remove directory"
+git push origin master
