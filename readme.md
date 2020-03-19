@@ -2,7 +2,7 @@
 
 
 **Description**
-
+In this repo I will train my coding skills by testing and follow some tutorials
 
 
 **Setup**
