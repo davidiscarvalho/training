@@ -2,10 +2,14 @@
 
 
 **Description**
+
 In this repo I will train my coding skills by testing and follow some tutorials
+
+In this readme file I will keep some notes 
 
 
 **Setup**
+
 #clone git repo
 git clone https://github.com/ABCDEF/ghijkl.git
 cd ./ghijkl
@@ -15,9 +19,6 @@ python -m venv .venv
 source .venv/bin/activate
 #install requirements
 pip install -r requirements.txt
-
-
-
 
 
 **git**
