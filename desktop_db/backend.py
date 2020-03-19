@@ -10,16 +10,6 @@ def connect():
     conn.close()
 
 
-def connect():
-    conn = sqlite3.connect("books.db")
-    cur = conn.cursor()
-    cur.execute(
-        "CREATE TABLE IF NOT EXISTS book (id INTEGER PRIMARY KEY, title text, author text, year integer, isbn integer)")
-    conn.commit()
-    conn.close()
-    print("DB created successfuly")
-
-
 def insert(title, author, year, isbn):
     conn = sqlite3.connect("books.db")
     cur = conn.cursor()
@@ -27,7 +17,7 @@ def insert(title, author, year, isbn):
                 (title, author, year, isbn))
     conn.commit()
     conn.close()
-    print("Data inserted successfuly")
+    view()
 
 
 def view():
@@ -67,8 +57,8 @@ def update(id, title, author, year, isbn):
 
 
 connect()
-insert("The Sun", "John Smith", 1918, 913123132)
+#insert("The Sun","John Smith",1918,913123132)
 # delete(3)
 #update(4,"The moon","John Smooth",1917,99999)
-print(view())
+# print(view())
 #print(search(author="John Smooth"))

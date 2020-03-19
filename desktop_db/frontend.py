@@ -1,19 +1,21 @@
-"""
-A program that stores this book information
-title, author
-year, isbn
-
-usar can:
-view all records
-search an entry
-add entry
-update entry
-delete
-close
-"""
-
+# to generate a .exe file, insert at terminal:
+# pyinstaller --onefile --windowed .\frontend.py
 from tkinter import *
 import backend
+
+
+def get_selected_row(event):
+    global selected_tuple
+    index = list1.curselection()[0]
+    selected_tuple = list1.get(index)
+    e1.delete(0, END)
+    e1.insert(END, selected_tuple[1])
+    e2.delete(0, END)
+    e2.insert(END, selected_tuple[2])
+    e3.delete(0, END)
+    e3.insert(END, selected_tuple[3])
+    e4.delete(0, END)
+    e4.insert(END, selected_tuple[4])
 
 
 def view_command():
@@ -47,6 +49,8 @@ def update_command():
 
 window = Tk()
 
+window.wm_title("BookStore")
+
 l1 = Label(window, text="Title")
 l1.grid(row=0, column=0)
 
@@ -75,7 +79,7 @@ isbn_text = StringVar()
 e4 = Entry(window, textvariable=isbn_text)
 e4.grid(row=1, column=3)
 
-list1 = Listbox(window, height=10, width=25)
+list1 = Listbox(window, height=6, width=35)
 list1.grid(row=2, column=0, rowspan=6, columnspan=2)
 
 sb1 = Scrollbar(window)
@@ -83,6 +87,8 @@ sb1.grid(row=2, column=2, rowspan=6)
 
 list1.configure(yscrollcommand=sb1.set)
 sb1.configure(command=list1.yview)
+
+list1.bind('<<ListboxSelect>>', get_selected_row)
 
 b1 = Button(window, text="View all", width=12, command=view_command)
 b1.grid(row=2, column=3)
@@ -101,6 +107,5 @@ b5.grid(row=6, column=3)
 
 b6 = Button(window, text="Close", width=12, command=window.destroy)
 b6.grid(row=7, column=3)
-
 
 window.mainloop()
