@@ -1,8 +1,15 @@
-**Title**
+**Title - Training Wheels**
 
-*Description*
 
-*Setup*
+**Description**
+
+In this repo I will train my coding skills by testing and follow some tutorials
+
+In this readme file I will keep some notes 
+
+
+**Setup**
+
 #clone git repo
 git clone https://github.com/ABCDEF/ghijkl.git
 cd ./ghijkl
@@ -14,7 +21,8 @@ source .venv/bin/activate
 pip install -r requirements.txt
 
 
-*git*
+**git**
+
 git push origin master
 
 git rm -r one-of-the-directories
