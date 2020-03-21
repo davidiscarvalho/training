@@ -1,6 +1,12 @@
 #config files
 .\with_firebase\config.py
 
+#images jpeg, png
+*.jpg
+*.png
+
+
+###################
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
