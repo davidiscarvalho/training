@@ -4,7 +4,8 @@
 #images jpeg, png
 *.jpg
 *.png
-
+#data xls
+*.xls*
 
 ###################
 # Byte-compiled / optimized / DLL files
