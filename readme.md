@@ -33,3 +33,6 @@ git push origin master
 **notes**
 to convert ipynb
 ipython nbconvert 'scrip.ipynb'
+
+#generate a requirements.txt
+pip freeze > requirements.txt
