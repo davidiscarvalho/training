@@ -1,0 +1,66 @@
+/* GENERIC STYLES */
+
+* {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: sans-serif;
+    margin: 0;
+    color: #2d2f3b;
+  }
+    
+  p {
+    line-height: 20px;
+  }
+
+  h2 {
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
+
+  nav {
+    background: cornflowerblue;
+    color: white;
+    padding: 5px 20px;
+    box-shadow: 0px 1px 5px gray;
+  }
+
+  nav p {
+    font-size: 20px;
+  }
+
+  .box {
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    padding: 20px 40px;
+    background: aliceblue;
+
+    max-width: 700px;
+    min-height: 300px;
+    box-shadow: 0px 1+x 5px gray;
+  }
+
+  .avatar {
+    width: 150px;
+    height: 150px;
+    margin: 0px 20px;
+    float: left;
+  }
+
+.images {
+  text-align: center;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+.images img {
+  width: 150px;
+  height: 150px;
+  margin: 20px;
+}
+
+.projects {
+  background: deepskyblue;
+}
