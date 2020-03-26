@@ -243,53 +243,53 @@ if(CONDITION){
 }
 */
 
-/*
+
 const trueBoolean = true
 const falseBoolean = false
 
-if(trueBoolean){
+if (trueBoolean) {
   console.log("Condition is true")
-}else{
+} else {
   console.log("Condition is false")
 }
 
-if(falseBoolean){
+if (falseBoolean) {
   console.log("Condition is true")
-}else{
+} else {
   console.log("Condition is false")
 }
 
-if(number1 === number2){
+if (number1 === number2) {
   console.log("Numbers are the same")
-}else{
+} else {
   console.log("Numbers are different")
 }
 
 let result
-if(number1 == string1){
+if (number1 == string1) {
   result = number1 + string1
   console.log(result)
-}else{
+} else {
   console.log("Numbers can not be summed")
 }
 
 let difference
 
-if(number1 >= number2){
+if (number1 >= number2) {
   difference = number1 - number2
-  console.log("The difference between numbers is: ",difference)
-}else{
+  console.log("The difference between numbers is: ", difference)
+} else {
   difference = number2 - number1
   console.log("The difference between numbers is: ", difference)
 }
 
-if(number1 > number2){
+if (number1 > number2) {
   difference = number1 - number2
-  console.log("The difference between numbers is: ",difference)
-}else if(number2 > number1){
+  console.log("The difference between numbers is: ", difference)
+} else if (number2 > number1) {
   difference = number2 - number1
-  console.log("The difference between numbers is: ",difference)
-}else{
+  console.log("The difference between numbers is: ", difference)
+} else {
   console.log("Numbers are the same")
 }
 
@@ -299,19 +299,19 @@ const number1 = 5
 const number2 = 10
 const number3 = 20
 
-if(number2 > number1){
+if (number2 > number1) {
   console.log("Number2 is bigger")
-}else if(number2 > number1 && number2<number3){
+} else if (number2 > number1 && number2 < number3) {
   console.log("Number 2 is in the middle")
-}else{
+} else {
   console.log("Hello World")
 }
 
-if(number2 > number1 && number2<number3){
+if (number2 > number1 && number2 < number3) {
   console.log("Number 2 is in the middle")
-}else if(number2 > number1){
+} else if (number2 > number1) {
   console.log("Number 2 is bigger")
-}else{
+} else {
   console.log("Hello world")
 }
 
@@ -329,30 +329,30 @@ if(number2 > number1 && number2<number3){
 
 const day = 1
 
-if(day === 1){
+if (day === 1) {
   console.log("Monday")
-}else if(day === 2){
+} else if (day === 2) {
   console.log("Tueday")
-}else if(day === 3){
+} else if (day === 3) {
   console.log("Wednesday")
-}else if(day === 4){
+} else if (day === 4) {
   console.log("Thursday")
-}else if(day === 5){
+} else if (day === 5) {
   console.log("Friday 🍻")
-}else if(day === 6){
+} else if (day === 6) {
   console.log("Saturday")
-}else if(day === 7){
+} else if (day === 7) {
   console.log("Sunday")
-}else{
+} else {
   console.log("That is not a valid day.")
 }
 
-switch(day){
+switch (day) {
   case 1: //day === 1
     console.log("Monday")
     break;
   case 2: //day === 2
-    console.log("Tuesday") 
+    console.log("Tuesday")
     break;
   case 3: //day --- 3
     console.log("Wednesday")
@@ -378,28 +378,28 @@ const newNumber = 4
 const newNumber2 = 10
 const newNumber3 = 5
 
-if(!(newNumber < newNumber2 || newNumber3 > newNumber2)){
+if (!(newNumber < newNumber2 || newNumber3 > newNumber2)) {
   console.log("Hey there!")
-}else{
+} else {
   console.log("Uuu, that is advanced logic!")
 }
 
-if(newNumber % 2 === 0){
+if (newNumber % 2 === 0) {
   console.log("newNumber is an even number")
-}else{
+} else {
   console.log("NewNumber is an uneven number")
 }
 
-if(newNumber % 2 !== 0){
+if (newNumber % 2 !== 0) {
   console.log("newNumber is an uneven number")
-}else{
+} else {
   console.log("NewNumber is an even number")
 }
 
-*/
+
 
 //LOOPS//
-/*
+
 let i = 0
 i++
 console.log(i)
@@ -409,70 +409,70 @@ i++
 console.log(i)
 
 //FOR LOOP//
-
+/*
 for(starter, condition, increment){
   CODE TO BE RUN FROM STARTER UNTIL CONDITION, INCREMENTED WITH INCREMENT
 }
+*/
 
-
-for(let i = 0;i<=100;i++){
+for (let i = 0; i <= 100; i++) {
   console.log(i)
 }
 
 let count = 0
-while(count <= 100){
+while (count <= 100) {
   console.log(count)
-  count ++
+  count++
 }
 
 
-for (let i =0; i<=100; i+=5){
+for (let i = 0; i <= 100; i += 5) {
   console.log(i)
 }
 
-let count =0
-while(count <=100){
+let count = 0
+while (count <= 100) {
   console.log(count)
-  count +=5
+  count += 5
 }
 
 
 
-for(let i=100; i>=0; i--){
+for (let i = 100; i >= 0; i--) {
   console.log(i)
 }
 
 let count = 100
-while(count >= 0){
+while (count >= 0) {
   console.log(count)
-  count --
+  count--
 }
 
-*/
+
 
 for (let i = 0; i <= 10; i++) {
-    if (i === 5) {
-        console.log("FIVE")
-    } else if (i === 10) {
-        console.log("TEN")
-    } else {
-        console.log(i)
-    }
+  if (i === 5) {
+    console.log("FIVE")
+  } else if (i === 10) {
+    console.log("TEN")
+  } else {
+    console.log(i)
+  }
 }
 
 let counter = 0
 
 while (counter <= 10) {
-    switch (counter) {
-        case 5:
-            console.log("FIVE")
-            break;
-        case 10:
-            console.log("TEN")
-            break;
-        default:
-            console.log(counter)
-            break
-    }
-    counter++
+  switch (counter) {
+    case 5:
+      console.log("FIVE")
+      break;
+    case 10:
+      console.log("TEN")
+      break;
+    default:
+      console.log(counter)
+      break
+  }
+  counter++
 }
