@@ -3,10 +3,12 @@ from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 from send_email import send_email
 from sqlalchemy.sql import func
+from config import init_db
+
+init = init_db
 
 app = Flask(__name__)
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:admin@localhost/height'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://aeizccbfdffvgk:cb11767654ed603cb7786b40289dd3f938b4fbd93f79a124424fa2c0a7b6e11f@ec2-18-206-84-251.compute-1.amazonaws.com:5432/db4halthtrc6ub?sslmode=require'
+app.config['SQLALCHEMY_DATABASE_URI'] = init
 db = SQLAlchemy(app)
 
 

@@ -1,5 +1,6 @@
-#config files
+#config/auth files
 .\with_firebase\config.py
+.\webapp_data_collector\config.py
 
 #images jpeg, png
 *.jpg
