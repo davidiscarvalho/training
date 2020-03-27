@@ -1,0 +1,194 @@
+<section class="block-container">
+    <article class="block-container-text markdown-style">
+        <h2>Python 101</h2>
+
+        <h4 id="basic-types">Basic Types</h4>
+
+        <p>Anything inside the double or single quotes is a <strong>string</strong></p>
+
+        <div class="language-python highlighter-rouge">
+            <div class="highlight github">
+                <pre class="highlight github"><code><span class="s">"Hello"</span>
+<span class="s">'Le Wagon'</span>
+<span class="nb">type</span><span class="p">(</span><span class="s">"Hello"</span><span class="p">)</span> <span class="c"># =&gt; &lt;class 'str'&gt;</span>
+</code></pre>
+            </div>
+        </div>
+
+        <p>⚠️ Any “text” value that you use in a program needs to come in quotes. Without quotes, Python will look for a
+            variable or a method of that name, and will give you an error if it does not find it.</p>
+
+        <div class="language-python highlighter-rouge">
+            <div class="highlight github">
+                <pre class="highlight github"><code><span class="s">"hello"</span> <span class="c"># OK</span>
+<span class="n">hello</span> <span class="c"># NameError: name 'hello' is not defined </span>
+</code></pre>
+            </div>
+        </div>
+
+        <p>Numbers can be either <strong>integers</strong> (whole numbers) or <strong>floats</strong> (numbers with a
+            fractional part)</p>
+
+        <div class="language-python highlighter-rouge">
+            <div class="highlight github">
+                <pre class="highlight github"><code><span class="nb">type</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c"># =&gt; &lt;class 'int'&gt;</span>
+<span class="nb">type</span><span class="p">(</span><span class="mf">3.5</span><span class="p">)</span> <span class="c"># =&gt; &lt;class 'float'&gt; </span>
+</code></pre>
+            </div>
+        </div>
+
+        <p><code class="highlighter-rouge">True</code> and <code class="highlighter-rouge">False</code> are special
+            values of type <code class="highlighter-rouge">bool</code> that are used for logical operations.</p>
+
+        <h4 id="variables-assignment">Variables: Assignment</h4>
+
+        <div class="language-python highlighter-rouge">
+            <div class="highlight github">
+                <pre class="highlight github"><code><span class="n">age</span> <span class="o">=</span> <span class="mi">21</span>
+<span class="n">name</span> <span class="o">=</span> <span class="s">"hello"</span>
+</code></pre>
+            </div>
+        </div>
+
+        <p>Variables are just a way programmers <strong>name</strong> values. They hold a reference to the underlying
+            object.<br>
+            We can use literal values and variables interchangeably:</p>
+
+        <div class="highlighter-rouge">
+            <div class="highlight github">
+                <pre class="highlight github"><code>type(21) # =&gt; &lt;class 'int'&gt;
+age = 21 
+type(age) # =&gt; &lt;class 'int'&gt; 
+</code></pre>
+            </div>
+        </div>
+
+        <h4 id="variables-re-assignment">Variables: Re-assignment</h4>
+
+        <div class="language-python highlighter-rouge">
+            <div class="highlight github">
+                <pre class="highlight github"><code><span class="n">age</span> <span class="o">=</span> <span class="mi">21</span>
+<span class="n">age</span> <span class="o">=</span> <span class="n">age</span> <span class="o">+</span> <span class="mi">1</span> <span class="c"># Now age holds the value 22</span>
+
+<span class="n">greeting</span> <span class="o">=</span> <span class="s">"Hello"</span>
+<span class="n">greeting</span> <span class="o">=</span> <span class="s">"Hola!"</span> <span class="c"># the new value of `greeting` variable is "Hola!", "Hello" is lost</span>
+</code></pre>
+            </div>
+        </div>
+
+        <h4 id="objects-and-methods">Objects and methods</h4>
+
+        <p>Besides using basic types that come with the language, programmers can design their own types (classes), and
+            create <strong>objects</strong> out of them.<br>
+            Usually, objects have built-in methods that can be <em>called</em> with a dot notation:</p>
+
+        <div class="language-python highlighter-rouge">
+            <div class="highlight github">
+                <pre class="highlight github"><code><span class="n">greeting</span> <span class="o">=</span> <span class="s">"hello"</span>
+<span class="n">greeting</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span> <span class="c"># =&gt; "Hello"</span>
+
+<span class="c"># BeautifulSoup has its own types:</span>
+
+<span class="n">scraped</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s">"html.parser"</span><span class="p">)</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">scraped</span><span class="p">)</span> <span class="c"># =&gt; bs4.BeautifulSoup </span>
+
+<span class="n">link</span> <span class="o">=</span> <span class="n">scraped</span><span class="o">.</span><span class="n">article</span><span class="o">.</span><span class="n">h3</span><span class="o">.</span><span class="n">a</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">link</span><span class="p">)</span> <span class="c"># =&gt; bs4.element.Tag</span>
+</code></pre>
+            </div>
+        </div>
+
+        <p><code class="highlighter-rouge">.h1</code>, <code class="highlighter-rouge">.find()</code>, <code
+                class="highlighter-rouge">find_all()</code>, <code class="highlighter-rouge">select()</code> — are all
+            methods that can be called on various BeautifulSoup objects</p>
+
+        <h4 id="lists-loops-dictionaries">Lists, loops, Dictionaries</h4>
+
+        <p>Python has a built-in <a href="https://docs.python.org/3/tutorial/datastructures.html#more-on-lists"
+                target="_blank">List</a> type for storing a collection of values.</p>
+
+        <div class="language-python highlighter-rouge">
+            <div class="highlight github">
+                <pre class="highlight github"><code><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">]</span> <span class="c"># a list of ints</span>
+<span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s">"Ann"</span><span class="p">,</span> <span class="s">"Bob"</span><span class="p">,</span> <span class="s">"Charlie"</span><span class="p">]</span> <span class="c"># a list of strings</span>
+</code></pre>
+            </div>
+        </div>
+
+        <p>In real-world programs the elements of the list are rarely known <em>beforehand</em>, so it is very common to
+            start with an empty list and then populate it with elements. Lists have an <code
+                class="highlighter-rouge">append()</code> method that takes any value as an argument.</p>
+
+        <div class="language-python highlighter-rouge">
+            <div class="highlight github">
+                <pre class="highlight github"><code><span class="n">numbers</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">numbers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">numbers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="c"># Now the list is [1, 2]</span>
+</code></pre>
+            </div>
+        </div>
+
+        <p>To do something with <strong>each</strong> element of the list, we need to <strong>iterate</strong> over it.
+            Python has a special <code class="highlighter-rouge">for... in...</code> construct for that:</p>
+
+        <div class="language-python highlighter-rouge">
+            <div class="highlight github">
+                <pre class="highlight github"><code><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s">"Ann"</span><span class="p">,</span> <span class="s">"Bob"</span><span class="p">,</span> <span class="s">"Charlie"</span><span class="p">]</span> 
+<span class="c">#    1.       2.</span>
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="c"># we can only use a `name` variable here, in a nested block of code.</span>
+    
+ <span class="c"># 1. We can refer to each individual element on every iteration by that name</span>
+ <span class="c"># 2. The list we are iterating upon</span>
+</code></pre>
+            </div>
+        </div>
+
+        <p>This will print all the names in the list, individually.</p>
+
+        <p>It does not matter how we name first variable in the <code class="highlighter-rouge">for... in...</code>, but
+            the second one <em>has</em> to be the one that holds a list.</p>
+
+        <div class="highlighter-rouge">
+            <div class="highlight github">
+                <pre class="highlight github"><code>for pizza in names:
+    print(pizza)
+    
+# Same result!
+</code></pre>
+            </div>
+        </div>
+
+        <p>Another common built-in data structure is called a <a
+                href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries"
+                target="_blank">Dictionary</a>.</p>
+
+        <div class="highlighter-rouge">
+            <div class="highlight github">
+                <pre class="highlight github"><code>book = {"War and Peace": "A famous novel by Leo Tolstoi"}
+</code></pre>
+            </div>
+        </div>
+
+        <p>Dictionaries are used to store “key-value” information. Here, “War and Peace” is the key, and the description
+            is the value. So it works like a real… dictionary! 📖</p>
+
+        <p>You can have Lists of Dictionaries. Here’s how we can build one</p>
+
+        <div class="highlighter-rouge">
+            <div class="highlight github">
+                <pre class="highlight github"><code>food_prices = []
+
+# Note the curly braces: 
+food_prices.append({"Apple": 1})
+food_prices.append({"Coco": 5})
+</code></pre>
+            </div>
+        </div>
+
+        <p>Now the <code class="highlighter-rouge">food_prices</code> list will look like this: <code
+                class="highlighter-rouge">[{"Apple: 1"}, {"Coco": 5}]</code></p>
+
+    </article>
+</section>

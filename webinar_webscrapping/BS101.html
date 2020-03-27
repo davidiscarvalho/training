@@ -1,0 +1,105 @@
+<article class="block-container-text markdown-style">
+    <h2>BeautifulSoup 101</h2>
+
+    <p>To get better at scraping, take time to consult the library’s <a
+            href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/" target="_blank">official documentation</a>.
+    </p>
+
+    <h4 id="setting-up">Setting up</h4>
+
+    <p>We need at least two Python libraries to write a scraper:</p>
+
+    <ul>
+        <li><code class="highlighter-rouge">requests</code> — to make HTTP requests from code</li>
+        <li><code class="highlighter-rouge">bs4</code> — BeautifulSoup, a library to parse HTML documents and navigate
+            the element tree</li>
+    </ul>
+
+    <p>On top of the file:</p>
+
+    <div class="highlighter-rouge">
+        <div class="highlight github">
+            <pre class="highlight github"><code>import requests
+from bs4 import BeautifulSoup
+</code></pre>
+        </div>
+    </div>
+
+    <p>These are the basic steps to pull page’s HTML code and parse it for further scraping:</p>
+
+    <div class="language-python highlighter-rouge">
+        <div class="highlight github">
+            <pre class="highlight github"><code><span class="n">url</span> <span class="o">=</span> <span class="s">"http://books.toscrape.com/index.html"</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">html</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">content</span>
+<span class="n">scraped</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s">'html.parser'</span><span class="p">)</span>
+</code></pre>
+        </div>
+    </div>
+
+    <h4 id="finding-a-single-element">Finding a single element</h4>
+
+    <p>Use the tag name, in this case <code class="highlighter-rouge">&lt;title&gt;</code> is a tag we’re looking for:
+    </p>
+
+    <p><code class="highlighter-rouge">scraped.find("title")</code> or <code
+            class="highlighter-rouge">scraped.title</code></p>
+
+    <p>Getting text out of an element:</p>
+
+    <div class="language-python highlighter-rouge">
+        <div class="highlight github">
+            <pre class="highlight github"><code><span class="n">title_text</span> <span class="o">=</span> <span class="n">scraped</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</code></pre>
+        </div>
+    </div>
+
+    <p>If the text is just numbers, you can convert it to <code class="highlighter-rouge">int</code> or <code
+            class="highlighter-rouge">float</code>:</p>
+
+    <div class="language-python highlighter-rouge">
+        <div class="highlight github">
+            <pre class="highlight github"><code>  <span class="n">price</span> <span class="o">=</span> <span class="n">scraped</span><span class="o">.</span><span class="n">article</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">"p"</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s">"price_color"</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="p">()</span> <span class="c"># =&gt; "£51.77"</span>
+<span class="c"># convert to float </span>
+<span class="n">price</span> <span class="o">=</span>  <span class="nb">float</span><span class="p">(</span><span class="n">price</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s">"£"</span><span class="p">))</span>
+</code></pre>
+        </div>
+    </div>
+
+    <p>Sometimes the data we want is not inside the element’s <em>text</em>, but inside one of it’s attributes:</p>
+
+    <div class="language-html highlighter-rouge">
+        <div class="highlight github">
+            <pre class="highlight github"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://mywebsite.com/about.html"</span><span class="nt">&gt;</span>About<span class="nt">&lt;/a</span><span class="err">&lt;</span><span class="nt">&gt;</span>
+</code></pre>
+        </div>
+    </div>
+
+    <p>If we save this element into a <code class="highlighter-rouge">link</code> variable and call <code
+            class="highlighter-rouge">link.text</code> — we will get “About”. If we wan’t the URL of the link instead —
+        we will have to access it like that: <code class="highlighter-rouge">a["href"]</code>.</p>
+
+    <p>As a rule of thumb:</p>
+
+    <ul>
+        <li><code class="highlighter-rouge">tag_name.text</code> — gives us the element’s text value</li>
+        <li><code class="highlighter-rouge">tag_name["attr_name"]</code> — gives the value of the attribute</li>
+    </ul>
+
+    <h4 id="collection-of-elements">Collection of elements</h4>
+
+    <p>Methods <code class="highlighter-rouge">find_all</code> and <code class="highlighter-rouge">select</code> will
+        always return a <em>list</em> of elements (even if one element is found, it will still be a collection with a
+        single element inside). Here’s how to iterate over a list in Python:</p>
+
+    <div class="language-python highlighter-rouge">
+        <div class="highlight github">
+            <pre class="highlight github"><code><span class="n">prices</span> <span class="o">=</span> <span class="n">scraped</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s">".price_color"</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">price</span> <span class="ow">in</span> <span class="n">prices</span><span class="p">:</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">price</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre>
+        </div>
+    </div>
+
+</article>
