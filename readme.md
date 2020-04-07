@@ -16,7 +16,7 @@ cd ./ghijkl
 #create python virtual environment
 python -m venv .venv
 #activate python virtual environment
-virtual/Scripts/activate
+.venv/Scripts/activate
 #in the case it doesn't work :Set-ExecutionPolicy Unrestricted -Force
 install gunicorn
 #generate a requirements.txt
@@ -44,6 +44,7 @@ ipython nbconvert 'scrip.ipynb'
 #generate a requirements.txt
 pip freeze > requirements.txt
 
+python -m pip install --upgrade pi
 **build app**
 requirements.txt
 Procfile
