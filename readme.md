@@ -44,7 +44,7 @@ ipython nbconvert 'scrip.ipynb'
 #generate a requirements.txt
 pip freeze > requirements.txt
 
-python -m pip install --upgrade pi
+python -m pip install --upgrade pip
 **build app**
 requirements.txt
 Procfile
