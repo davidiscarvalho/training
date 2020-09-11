@@ -26,6 +26,7 @@ pip install -r requirements.txt
 
 
 **git**
+git clone http:\\...
 git push origin master
 
 git rm -r one-of-the-directories
@@ -50,3 +51,9 @@ requirements.txt
 Procfile
 runtime.txt (https://devcenter.heroku.com/articles/python-runtimes#supported-python-runtimes)
 .gitignore
+
+
+**mongo**
+C:\Program Files\MongoDB\Server\4.2\bin\mongo.exe
+.\mongorestore.exe -d pos --drop C:\training\practice\pos\data
+
